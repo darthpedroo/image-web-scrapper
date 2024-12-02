@@ -1,8 +1,15 @@
 import base64
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+
+directory_name = "images"
+try:
+    os.mkdir(directory_name)
+except Exception:
+    print("La carpeta ya existe")
 
 # Setup Chrome options
 chrome_options = Options()
@@ -20,7 +27,7 @@ service = Service(chrome_driver_path)
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
 # Navigate to a webpage
-search_key_word = "ME WHEN KNEE SURGERY IS TOMORROW"
+search_key_word = "HOMER SIMPSON PROGRAMMING"
 query = f"https://www.google.com/search?q={search_key_word}&tbm=isch"
 
 driver.get(query)
